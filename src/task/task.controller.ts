@@ -34,21 +34,11 @@ export class TaskController {
 		return this.taskService.updateTaskStatus(id, status);
 	}
 
-	/*@Get()
-	getTasks(@Query() filterDto: GetTasksFilterDto): Task[] {
-		if(Object.keys(filterDto).length) {
-			return this.taskService.getTaskWithFilters(filterDto);
-		} else {
-			return this.taskService.getAllTasks();
-		}
+	@Get()
+	getTasks(@Query() filterDto: GetTasksFilterDto): Promise<Task[]> {
+		return this.taskService.getTasks(filterDto);
 		
 	}
 
-		
-
-	
-
-	
-
-	 */
 }
+
